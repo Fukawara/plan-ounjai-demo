@@ -205,25 +205,25 @@ export default function App() {
         {/* Inputs core */}
         <section className="grid lg:grid-cols-3 gap-6">
           <Card title="1) อายุ & สมมติฐาน">
-            <Number label="อายุปัจจุบัน" value={age} onChange={setAge} />
-            <Number label="อายุเกษียณ" value={retireAge} onChange={setRetireAge} />
-            <Number label="อายุคาดเฉลี่ย" value={lifeExpectancy} onChange={setLifeExpectancy} />
-            <Percent label="เงินเฟ้อ/ปี" value={inflation} onChange={setInflation} />
-            <Percent label="ผลตอบแทนก่อนเกษียณ" value={returnBefore} onChange={setReturnBefore} />
-            <Percent label="ผลตอบแทนหลังเกษียณ" value={returnAfter} onChange={setReturnAfter} />
+            <NumInput label="อายุปัจจุบัน" value={age} onChange={setAge} />
+            <NumInput label="อายุเกษียณ" value={retireAge} onChange={setRetireAge} />
+            <NumInput label="อายุคาดเฉลี่ย" value={lifeExpectancy} onChange={setLifeExpectancy} />
+            <PercentInput label="เงินเฟ้อ/ปี" value={inflation} onChange={setInflation} />
+            <PercentInput label="ผลตอบแทนก่อนเกษียณ" value={returnBefore} onChange={setReturnBefore} />
+            <PercentInput label="ผลตอบแทนหลังเกษียณ" value={returnAfter} onChange={setReturnAfter} />
           </Card>
           <Card title="2) รายได้ & ค่าใช้จ่าย">
-            <Number label="รายได้งานประจำ/เดือน" value={incomeMain} onChange={setIncomeMain} />
-            <Number label="รายได้เสริม/เดือน" value={incomeSide} onChange={setIncomeSide} />
-            <Number label="ค่าใช้จ่าย Basic/เดือน" value={expBasic} onChange={setExpBasic} />
-            <Number label="ค่าใช้จ่าย Health/เดือน" value={expHealth} onChange={setExpHealth} />
-            <Number label="ค่าใช้จ่าย Lifestyle/เดือน" value={expLifestyle} onChange={setExpLifestyle} />
+            <NumInput label="รายได้งานประจำ/เดือน" value={incomeMain} onChange={setIncomeMain} />
+            <NumInput label="รายได้เสริม/เดือน" value={incomeSide} onChange={setIncomeSide} />
+            <NumInput label="ค่าใช้จ่าย Basic/เดือน" value={expBasic} onChange={setExpBasic} />
+            <NumInput label="ค่าใช้จ่าย Health/เดือน" value={expHealth} onChange={setExpHealth} />
+            <NumInput label="ค่าใช้จ่าย Lifestyle/เดือน" value={expLifestyle} onChange={setExpLifestyle} />
           </Card>
           <Card title="3) ทรัพย์สิน & ออมตอนนี้">
-            <Number label="ทรัพย์สินเพื่อเกษียณ (รวม)" value={currentAssets} onChange={setCurrentAssets} />
-            <Number label="หนี้ที่เกี่ยวข้อง" value={currentDebt} onChange={setCurrentDebt} />
-            <Number label="กำลังออมอยู่/เดือน" value={currentSavingPerMonth} onChange={setCurrentSavingPerMonth} />
-            <Percent label="PVD ลูกจ้าง (% รายได้ปี)" value={pvdRate} onChange={setPvdRate} />
+            <NumInput label="ทรัพย์สินเพื่อเกษียณ (รวม)" value={currentAssets} onChange={setCurrentAssets} />
+            <NumInput label="หนี้ที่เกี่ยวข้อง" value={currentDebt} onChange={setCurrentDebt} />
+            <NumInput label="กำลังออมอยู่/เดือน" value={currentSavingPerMonth} onChange={setCurrentSavingPerMonth} />
+            <PercentInput label="PVD ลูกจ้าง (% รายได้ปี)" value={pvdRate} onChange={setPvdRate} />
           </Card>
         </section>
 
@@ -232,12 +232,12 @@ export default function App() {
           <div className="bg-white rounded-2xl p-4 shadow space-y-3 lg:col-span-2">
             <h3 className="font-semibold">Debt Planner</h3>
             <div className="grid md:grid-cols-3 gap-4">
-              <Number label="บ้าน: ยอดเงินกู้" value={mortgage.principal} onChange={(v)=>setMortgage({ ...mortgage, principal: v })} />
-              <Percent label="บ้าน: ดอกเบี้ย/ปี" value={mortgage.rate} onChange={(v)=>setMortgage({ ...mortgage, rate: v })} />
-              <Number label="บ้าน: ระยะปี" value={mortgage.years} onChange={(v)=>setMortgage({ ...mortgage, years: v })} />
-              <Number label="รถ: ยอดเงินกู้" value={carLoan.principal} onChange={(v)=>setCarLoan({ ...carLoan, principal: v })} />
-              <Percent label="รถ: ดอกเบี้ย/ปี" value={carLoan.rate} onChange={(v)=>setCarLoan({ ...carLoan, rate: v })} />
-              <Number label="รถ: ระยะปี" value={carLoan.years} onChange={(v)=>setCarLoan({ ...carLoan, years: v })} />
+              <NumInput label="บ้าน: ยอดเงินกู้" value={mortgage.principal} onChange={(v)=>setMortgage({ ...mortgage, principal: v })} />
+              <PercentInput label="บ้าน: ดอกเบี้ย/ปี" value={mortgage.rate} onChange={(v)=>setMortgage({ ...mortgage, rate: v })} />
+              <NumInput label="บ้าน: ระยะปี" value={mortgage.years} onChange={(v)=>setMortgage({ ...mortgage, years: v })} />
+              <NumInput label="รถ: ยอดเงินกู้" value={carLoan.principal} onChange={(v)=>setCarLoan({ ...carLoan, principal: v })} />
+              <PercentInput label="รถ: ดอกเบี้ย/ปี" value={carLoan.rate} onChange={(v)=>setCarLoan({ ...carLoan, rate: v })} />
+              <NumInput label="รถ: ระยะปี" value={carLoan.years} onChange={(v)=>setCarLoan({ ...carLoan, years: v })} />
             </div>
             <div className="text-sm text-slate-600">รวมค่างวด/เดือนโดยประมาณ: <b>{fmt(Math.round(mortgagePmt + carPmt))}</b> บาท</div>
             <div className="text-xs text-slate-500">* แนะนำ: ถ้า DSR (ค่างวดทั้งหมด/รายได้) &gt; 40% ให้พิจารณารีไฟแนนซ์/ยืดงวด</div>
@@ -247,9 +247,9 @@ export default function App() {
           </div>
           <div className="bg-white rounded-2xl p-4 shadow space-y-3">
             <h3 className="font-semibold">Protection Gap</h3>
-            <Number label="ทุนประกันชีวิตที่มี" value={lifeCoverHave} onChange={setLifeCoverHave} />
-            <Number label="ทุนประกันโรคร้ายแรง (CI) ที่มี" value={ciCoverHave} onChange={setCiCoverHave} />
-            <Number label="งบประกันสุขภาพ/ปี (ตั้งเป้า)" value={healthBudget} onChange={setHealthBudget} />
+            <NumInput label="ทุนประกันชีวิตที่มี" value={lifeCoverHave} onChange={setLifeCoverHave} />
+            <NumInput label="ทุนประกันโรคร้ายแรง (CI) ที่มี" value={ciCoverHave} onChange={setCiCoverHave} />
+            <NumInput label="งบประกันสุขภาพ/ปี (ตั้งเป้า)" value={healthBudget} onChange={setHealthBudget} />
             <div className="text-sm">
               ควรมีทุนชีวิตเพิ่มราว <b>{fmt(Math.round(lifeNeed))}</b> บาท<br/>
               ควรมีทุน CI เพิ่มราว <b>{fmt(Math.round(ciNeed))}</b> บาท
@@ -263,19 +263,19 @@ export default function App() {
           <div className="bg-white rounded-2xl p-4 shadow space-y-3 lg:col-span-2">
             <h3 className="font-semibold">Scenario & Monte Carlo</h3>
             <div className="grid md:grid-cols-3 gap-4">
-              <Percent label="ช็อกตลาดปีแรก (ก่อนเกษียณ)" value={bearShock} onChange={setBearShock} />
-              <Percent label="ส่วนเบี่ยงเบนผลตอบแทนก่อน/ปี (σ)" value={stdevBefore} onChange={setStdevBefore} />
-              <Percent label="ส่วนเบี่ยงเบนหลัง/ปี (σ)" value={stdevAfter} onChange={setStdevAfter} />
-              <Number label="จำนวนรัน Monte Carlo" value={runs} onChange={(v)=>setRuns(clamp(v,100,3000))} />
+              <PercentInput label="ช็อกตลาดปีแรก (ก่อนเกษียณ)" value={bearShock} onChange={setBearShock} />
+              <PercentInput label="ส่วนเบี่ยงเบนผลตอบแทนก่อน/ปี (σ)" value={stdevBefore} onChange={setStdevBefore} />
+              <PercentInput label="ส่วนเบี่ยงเบนหลัง/ปี (σ)" value={stdevAfter} onChange={setStdevAfter} />
+              <NumInput label="จำนวนรัน Monte Carlo" value={runs} onChange={(v)=>setRuns(clamp(v,100,3000))} />
             </div>
             <div className="text-sm mt-2">ความน่าจะเป็นที่เงินไม่หมดก่อนอายุ {lifeExpectancy}: <b>{pct(mc.successProb)}</b></div>
             <div className="h-72 mt-2">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={[{ name: "ความสำเร็จ", value: mc.successProb }]}>
+                <BarChart data={[{ name: "ความสำเร็จ", value: mc.successProb }]}> 
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="name" />
                   <YAxis domain={[0,1]} tickFormatter={(v)=>pct(v)} />
-                  <Tooltip formatter={(v:any)=>pct(Number(v))} />
+                  <Tooltip formatter={(v: any)=> pct(+v)} />
                   <Bar dataKey="value" />
                   <Legend />
                 </BarChart>
@@ -291,7 +291,7 @@ export default function App() {
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="age" />
                   <YAxis tickFormatter={(v)=> (v/1_000_000).toFixed(0) + "ล."} />
-                  <Tooltip formatter={(v:any)=> fmt(Number(v)) + " บาท"} labelFormatter={(l)=>`อายุ ${l}`} />
+                  <Tooltip formatter={(v: any)=> fmt(+v) + " บาท"} labelFormatter={(l)=>`อายุ ${l}`} />
                   <Line type="monotone" dataKey="wealth" dot={false} />
                 </LineChart>
               </ResponsiveContainer>
@@ -323,13 +323,15 @@ function Card({ title, children }: { title: string; children: React.ReactNode })
     </div>
   );
 }
-type NumberProps = {
+
+// ---- Inputs (typed & safe) ----
+export type NumInputProps = {
   label: string;
   value: number;
   onChange: (n: number) => void;
   suffix?: string;
 };
-function Number({ label, value, onChange, suffix }: any){
+export function NumInput({ label, value, onChange, suffix }: NumInputProps) {
   return (
     <label className="block">
       <div className="text-sm text-slate-600 mb-1">{label}</div>
@@ -339,12 +341,12 @@ function Number({ label, value, onChange, suffix }: any){
           step="any"
           inputMode="decimal"
           pattern="[0-9.]*"
-          onWheel={(e)=> (e.currentTarget as any).blur()}
+          onWheel={(e) => (e.currentTarget as HTMLInputElement).blur()}
           className="w-full rounded-xl border px-3 py-2"
           value={Number.isFinite(value) ? value : 0}
-          onChange={(e)=>{
+          onChange={(e) => {
             const raw = e.target.value;
-            const num = raw === '' ? 0 : Number(raw);
+            const num = raw === "" ? 0 : +raw;
             onChange(Number.isNaN(num) ? 0 : num);
           }}
         />
@@ -353,12 +355,13 @@ function Number({ label, value, onChange, suffix }: any){
     </label>
   );
 }
-type PercentProps = {
+
+export type PercentInputProps = {
   label: string;
   value: number;
   onChange: (n: number) => void;
 };
-function Percent({ label, value, onChange }: any){
+export function PercentInput({ label, value, onChange }: PercentInputProps) {
   return (
     <label className="block">
       <div className="text-sm text-slate-600 mb-1">{label}</div>
@@ -368,12 +371,12 @@ function Percent({ label, value, onChange }: any){
           step="any"
           inputMode="decimal"
           pattern="[0-9.]*"
-          onWheel={(e)=> (e.currentTarget as any).blur()}
+          onWheel={(e) => (e.currentTarget as HTMLInputElement).blur()}
           className="w-full rounded-xl border px-3 py-2"
-          value={Math.round((Number.isFinite(value)?value:0) * 1000) / 10}
-          onChange={(e)=>{
+          value={Math.round((Number.isFinite(value) ? value : 0) * 1000) / 10}
+          onChange={(e) => {
             const raw = e.target.value;
-            const num = raw === '' ? 0 : Number(raw);
+            const num = raw === "" ? 0 : +raw;
             onChange((Number.isNaN(num) ? 0 : num) / 100);
           }}
         />
@@ -403,9 +406,9 @@ function GoalEditor({ goals, setGoals }: { goals: { id: string; name: string; ta
         {data.map((g) => (
           <div key={g.id} className="grid md:grid-cols-5 gap-2 items-end bg-slate-50 rounded-xl p-2">
             <input className="rounded border px-2 py-1 md:col-span-2" value={g.name} onChange={(e)=>upd(g.id,{name:e.target.value})} />
-            <input type="number" className="rounded border px-2 py-1" value={g.target} onChange={(e)=>upd(g.id,{target:Number(e.target.value)})} />
-            <input type="number" className="rounded border px-2 py-1" value={g.year} onChange={(e)=>upd(g.id,{year:Number(e.target.value)})} />
-            <input type="number" className="rounded border px-2 py-1" value={g.priority} onChange={(e)=>upd(g.id,{priority:Number(e.target.value)})} />
+            <input type="number" className="rounded border px-2 py-1" value={g.target} onChange={(e)=>upd(g.id,{target:+e.target.value})} />
+            <input type="number" className="rounded border px-2 py-1" value={g.year} onChange={(e)=>upd(g.id,{year:+e.target.value})} />
+            <input type="number" className="rounded border px-2 py-1" value={g.priority} onChange={(e)=>upd(g.id,{priority:+e.target.value})} />
             <button className="text-red-600 text-sm" onClick={()=>del(g.id)}>ลบ</button>
           </div>
         ))}
@@ -416,7 +419,7 @@ function GoalEditor({ goals, setGoals }: { goals: { id: string; name: string; ta
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="year" />
             <YAxis tickFormatter={(v)=> (v/1_000_000).toFixed(1)+"ล."} />
-            <Tooltip formatter={(v:any)=> fmt(Number(v))+" บาท"} />
+            <Tooltip formatter={(v: any)=> fmt(+v)+" บาท"} />
             <Bar dataKey="amount" />
           </BarChart>
         </ResponsiveContainer>
