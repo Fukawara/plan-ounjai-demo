@@ -323,20 +323,49 @@ function Card({ title, children }: { title: string; children: React.ReactNode })
     </div>
   );
 }
-function Number({ label, value, onChange }: { label: string; value: number; onChange: (n: number) => void }) {
-  return (
-    <label className="block">
-      <div className="text-sm text-slate-600 mb-1">{label}</div>
-      <input type="number" className="w-full rounded-xl border px-3 py-2" value={value} onChange={(e) => onChange(Number(e.target.value))} />
-    </label>
-  );
-}
-function Percent({ label, value, onChange }: { label: string; value: number; onChange: (n: number) => void }) {
+function Number({ label, value, onChange, suffix }: any){
   return (
     <label className="block">
       <div className="text-sm text-slate-600 mb-1">{label}</div>
       <div className="flex items-center gap-2">
-        <input type="number" className="w-full rounded-xl border px-3 py-2" value={Math.round(value * 1000) / 10} onChange={(e) => onChange(Number(e.target.value) / 100)} />
+        <input
+          type="number"
+          step="any"
+          inputMode="decimal"
+          pattern="[0-9.]*"
+          onWheel={(e)=> (e.currentTarget as any).blur()}
+          className="w-full rounded-xl border px-3 py-2"
+          value={Number.isFinite(value) ? value : 0}
+          onChange={(e)=>{
+            const raw = e.target.value;
+            const num = raw === '' ? 0 : Number(raw);
+            onChange(Number.isNaN(num) ? 0 : num);
+          }}
+        />
+        {suffix && <span className="text-slate-500">{suffix}</span>}
+      </div>
+    </label>
+  );
+}
+function Percent({ label, value, onChange }: any){
+  return (
+    <label className="block">
+      <div className="text-sm text-slate-600 mb-1">{label}</div>
+      <div className="flex items-center gap-2">
+        <input
+          type="number"
+          step="any"
+          inputMode="decimal"
+          pattern="[0-9.]*"
+          onWheel={(e)=> (e.currentTarget as any).blur()}
+          className="w-full rounded-xl border px-3 py-2"
+          value={Math.round((Number.isFinite(value)?value:0) * 1000) / 10}
+          onChange={(e)=>{
+            const raw = e.target.value;
+            const num = raw === '' ? 0 : Number(raw);
+            onChange((Number.isNaN(num) ? 0 : num) / 100);
+          }}
+        />
         <span className="text-slate-500">%</span>
       </div>
     </label>
