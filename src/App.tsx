@@ -323,6 +323,12 @@ function Card({ title, children }: { title: string; children: React.ReactNode })
     </div>
   );
 }
+type NumberProps = {
+  label: string;
+  value: number;
+  onChange: (n: number) => void;
+  suffix?: string;
+};
 function Number({ label, value, onChange, suffix }: any){
   return (
     <label className="block">
@@ -347,6 +353,11 @@ function Number({ label, value, onChange, suffix }: any){
     </label>
   );
 }
+type PercentProps = {
+  label: string;
+  value: number;
+  onChange: (n: number) => void;
+};
 function Percent({ label, value, onChange }: any){
   return (
     <label className="block">
