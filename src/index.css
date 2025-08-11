@@ -15,3 +15,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+:root{
+  --pj-bg:#F7F8FA; --pj-card:#FFFFFF; --pj-border:#E6E8EF;
+  --pj-text:#1F2937; --pj-muted:#6B7280;
+  --pj-primary:#0EA5A4;  /* เขียวอุ่นใจ */
+  --pj-accent:#F97316;   /* ส้มแนะนำ */
+  --pj-good:#10B981; --pj-warn:#F59E0B; --pj-bad:#EF4444;
+  --pj-radius:16px;
+}
